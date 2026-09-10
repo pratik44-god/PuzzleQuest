@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1787491271734,
+      "tag": "0000_greedy_havok",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1787491271735,
+      "tag": "0001_hunt_tag",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1787491271736,
+      "tag": "0002_hunt_play_count",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1787491271737,
+      "tag": "0003_hunt_description_length",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1787491271738,
+      "tag": "0004_hunt_answer_length",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1787491271739,
+      "tag": "0005_hunt_question_text",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1787491271740,
+      "tag": "0006_hunt_completions",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1787491271741,
+      "tag": "0007_question_time_limit",
+      "breakpoints": true
+    }
+  ]
+}

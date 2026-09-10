@@ -1,0 +1,81 @@
+import { trpc } from "~/trpc/client";
+
+export const useLogin = () => {
+  const utils = trpc.useUtils()
+  const {
+
+    mutateAsync: getGoogleAuthUrlAsync,
+    mutate: getGoogleAuthUrl,
+    error,
+    isError,
+    isSuccess,
+    status
+  } = trpc.auth.getGoogleAuthUrl.useMutation({
+    onSuccess: async () => {
+      await utils.auth.isUserLoggedIn.invalidate()
+    }
+});
+ 
+  
+  return {
+    getGoogleAuthUrlAsync,
+    getGoogleAuthUrl,
+    error,
+    isError,
+    isSuccess,
+    status
+  };
+};
+
+export const useIsUserLoggedIn = () => {
+  const{
+    data,
+    error,
+    isError,
+    isSuccess,
+    status
+    
+  } = trpc.auth.isUserLoggedIn.useQuery()
+
+  const isUserLoggedIn = Boolean(data?.id);
+
+  return{
+    isUserLoggedIn,
+    error,
+    isSuccess,
+    isError,
+    status
+  }
+}
+
+export const useLogout = () => {
+  const utils = trpc.useUtils()
+  const {
+    mutateAsync: logoutAsync,
+    mutate: logout,
+    error,
+    isSuccess,
+    isError,
+    status
+  } = trpc.auth.logout.useMutation({
+    onSuccess: async () => {
+      await utils.auth.isUserLoggedIn.invalidate()
+    }
+  })
+
+  return {
+    logoutAsync,
+    logout,
+    error,
+    isSuccess,
+    isError,
+    status
+  }
+}
+export const useUser = () => {
+    const {data: user, error, isFetched, isFetching, isLoading, status} = trpc.auth.getUserById.useQuery()
+
+    return { 
+        user, error, isFetched, isFetching, isLoading, status
+    }
+}
